@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe Finder</title>
+    <meta
+      name="description"
+      content="Vibe Finder — создайте своё настроение и откройте персональное вайб-пространство."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="ambient ambient-1"></div>
+      <div class="ambient ambient-2"></div>
+      <div class="ambient ambient-3"></div>
+      <div id="particles" aria-hidden="true"></div>
+
+      <section id="home-screen" class="screen active">
+        <div class="hero-wrap">
+          <div class="hero-glow"></div>
+          <h1>Vibe Finder</h1>
+          <p class="subtitle">
+            Найди своё настроение и войди в атмосферу, которая подстроится под тебя.
+          </p>
+          <button id="start-btn" class="primary-btn">Начать</button>
+        </div>
+      </section>
+
+      <section id="survey-screen" class="screen">
+        <div class="survey-panel">
+          <div class="survey-header">
+            <span id="progress-label" class="progress-label">Вопрос 1 из 5</span>
+            <div class="progress-bar">
+              <span id="progress-fill"></span>
+            </div>
+          </div>
+
+          <div class="survey-card">
+            <p class="card-kicker">Опрос</p>
+            <h2 id="question-text">Какое у тебя настроение прямо сейчас?</h2>
+            <div id="answers" class="answers" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="vibe-screen" class="screen">
+        <div id="vibe-audio-player" class="audio-player is-expanded" aria-label="Музыкальный плеер">
+          <div class="player-header">
+            <div class="player-track">
+              <span class="player-kicker">Now playing</span>
+              <div class="track-name-wrap">
+                <strong id="player-track-title">Cosmos Drift</strong>
+                <small id="player-track-author">Aural Tide</small>
+              </div>
+            </div>
+            <button id="player-collapse" class="player-collapse" type="button" aria-label="Свернуть плеер">
+              ⌃
+            </button>
+          </div>
+
+          <div class="player-main">
+            <button id="player-play" class="player-btn main" type="button" aria-label="Воспроизведение">Play</button>
+
+            <div class="player-timeline">
+              <span id="player-current-time">0:00</span>
+              <input id="player-seek" type="range" min="0" max="100" value="0" aria-label="Позиция трека" />
+              <span id="player-total-time">0:00</span>
+            </div>
+
+            <div class="player-volume-wrap">
+              <label for="player-volume">🔊</label>
+              <input id="player-volume" type="range" min="0" max="1" step="0.01" value="0.75" aria-label="Громкость" />
+            </div>
+          </div>
+
+          <div class="player-secondary">
+            <button id="player-rewind" class="player-btn" type="button" aria-label="Назад на 10 секунд">⏪</button>
+            <button id="player-stop" class="player-btn" type="button" aria-label="Остановить">Stop</button>
+            <button id="player-forward" class="player-btn" type="button" aria-label="Вперёд на 10 секунд">⏩</button>
+          </div>
+        </div>
+
+        <button id="return-btn" class="return-btn" aria-label="Вернуться в начало">
+          ↩ Вернуться
+        </button>
+
+        <div class="vibe-shell">
+          <div class="quote-card" id="quote-card" tabindex="0" role="button" aria-label="Показать следующую цитату">
+            <span class="quote-label">Вайб-цитата</span>
+            <p id="quote-text">Тихий свет — лучший компаньон для новых мыслей.</p>
+          </div>
+
+          <header class="vibe-header">
+            <div>
+              <p class="theme-tag">Премиум вайб</p>
+              <h2 id="theme-name">Спокойный космос</h2>
+            </div>
+          </header>
+
+          <div class="vibe-description-wrap">
+            <p id="theme-description">
+              Пространство тишины, мягкого свечения и вдохновляющего покоя.
+            </p>
+          </div>
+
+          <div id="game-stage" class="game-stage">
+            <div id="game-panel" class="game-panel"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
